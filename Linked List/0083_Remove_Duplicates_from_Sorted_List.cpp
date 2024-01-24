@@ -1,5 +1,7 @@
 /*
+    給定一鏈結串列，輸出將此鏈結串列刪掉連續重複的元素
 
+    利用two pointer，若prev和curr的元素相同則將prev指向curr->next
  */
 
 /**
