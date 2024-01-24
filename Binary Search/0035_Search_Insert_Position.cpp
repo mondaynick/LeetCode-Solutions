@@ -2,7 +2,7 @@
   給定陣列nums，其數值為由升冪排序，輸出若要插入整數target，應該插入nums的第幾個位置
 
   利用二分搜尋法，當兩者交錯時回傳low
-*/
+ */
 
 class Solution {
 public:
