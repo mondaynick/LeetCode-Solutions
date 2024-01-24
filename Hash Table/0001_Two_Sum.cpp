@@ -1,4 +1,8 @@
-// https://leetcode.com/problems/two-sum/
+/*
+    遍歷nums，若目前指到第i個，
+    若target - nums[i]在字典中，則回傳其對應的value，
+    反之則儲存鍵值對{target-nums[i], i}至字典中
+*/
 
 class Solution {
 public:
