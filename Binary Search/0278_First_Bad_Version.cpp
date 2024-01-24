@@ -3,7 +3,7 @@
 
   透過二分搜尋法，如果當前是壞掉的則判斷是否為第一個或前一個是否是好的，是則回傳當前位置，
   否則往前面尋找，如果當前不是壞掉則往後面尋找
-*/
+ */
 
 // The API isBadVersion is defined for you.
 // bool isBadVersion(int version);
