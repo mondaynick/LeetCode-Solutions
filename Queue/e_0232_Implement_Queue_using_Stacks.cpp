@@ -1,5 +1,5 @@
 /*
-  利用stack做出queue的API
+  利用stack實作queue的API
 
   根據定義
  */
