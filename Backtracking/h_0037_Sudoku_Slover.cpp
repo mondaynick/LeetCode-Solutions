@@ -7,7 +7,7 @@
 class Solution {
 public:
     void solveSudoku(vector<vector<char>>& board) {
-        set<char> rows[9], cols[9], sqas[3][3];
+        unordered_set<char> rows[9], cols[9], sqas[3][3];
         stack<pair<int, int>> pits;
 
         function<void(void)> init = [&] (void) {
