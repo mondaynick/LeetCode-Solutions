@@ -9,21 +9,27 @@ public:
     bool checkInclusion(string s1, string s2) {
         if (s1.length() > s2.length()) return false;
 
-        unordered_map<char, int> dict;
-        for (char c: "abcdefghijklmnopqrstuvwxyz") dict[c] = 0;
-        for (char c: s1) dict[c]++;
+        unordered_map<char, int> window, need;
+        for (char c: s1) need[c]++;
 
-        int s1len = s1.length(), s2len = s2.length();
-        int left = 0, right = 0, count = s1len;
-        while (right < s2len) {
-            if (dict[s2[right]] > 0) count--;
-            dict[s2[right]]--;
+        int left = 0, right = 0, count = 0;
+        while (right < s2.length()) {
+            if (need.count(s2[right])) {
+                window[s2[right]]++;
+                if (window[s2[right]] == need[s2[right]]) {
+                    count++;
+                }
+            }
             right++;
 
-            if (count == 0) return true;
-            if (right - left == s1len) {
-                dict[s2[left]]++;
-                if (dict[s2[left]] > 0) count++;
+            while (right - left >= s1.length()) {
+                if (count == need.size()) return true;
+                if (need.count(s2[left])) {
+                    if (window[s2[left]] == need[s2[left]]) {
+                        count--;
+                    }
+                    window[s2[left]]--;
+                }
                 left++;
             }
         }
