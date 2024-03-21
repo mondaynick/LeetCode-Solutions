@@ -4,11 +4,15 @@
   利用兩個變數，一個紀錄當前最小值，一個紀錄當前最大利潤
  */
 
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        profit = 0
-        minima = prices[0]
-        for i in range(1, len(prices)):
+class Solution {
+public:
+    int maxProfit(vector<int> prices) {
+        int profit = 0
+        int minima = prices[0]
+        for (int i = 1 ; i < len(prices) ; i++) {
             minima = min(minima, prices[i])
             profit = max(profit, prices[i] - minima)
-        return profit
+            return profit
+        }
+    }
+};
