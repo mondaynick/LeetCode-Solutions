@@ -9,7 +9,18 @@
   -> wordBreak("cats") + indict("anddog")
   -> wordBreak("catsa") + indict("nddog")
   -> wordBreak("catsan") + indict("ddog")
-  -> wordBreak("catsand") + indict("dog")
+  -> wordBreak("catsand") + indict("dog") -> wordBreak("") + indict("catsand")
+                                          -> wordBreak("c") + indict("atsand")
+                                          -> wordBreak("ca") + indict("tsand")
+                                          -> wordBreak("cat") + indict("sand") -> wordBreak("") + indict("cat") -> {"cat"}
+                                                                               -> wordBreak("c") + indict("at")
+                                                                               -> wordBreak("ca") + indict("t")
+                                          -> wordBreak("cats") + indict("and") -> wordBreak("") + indict("cats") -> {"cats"}
+                                                                               -> wordBreak("c") + indict("ats")
+                                                                               -> wordBreak("ca") + indict("ts")
+                                                                               -> wordBreak("cat") + indict("s")
+                                          -> wordBreak("catsa") + indict("nd")
+                                          -> wordBreak("catsan") + indict("d")
   -> wordBreak("catsandd") + indict("og")
   -> wordBreak("catsanddo") + indict("g")
  */
