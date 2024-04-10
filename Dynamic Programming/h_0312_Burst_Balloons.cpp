@@ -17,6 +17,10 @@ public:
         for (int i = 1 ; i < nums.size() + 2 ; i++) {
             for (int j = 0, k = i ; k < nums.size() + 2 ; j++, k++) {
                 for (int l = j + 1 ; l < k ; l++) {
+                    /*
+                      要戳破氣球k，首先先戳破區間(i, k)的氣球，再戳破區間(k, j)的氣球
+                      最終會剩下氣球i, k, j，此時戳破k會得到分數points[i] * points[k] * points[j]
+                     */
                     dp[j][k] = max(dp[j][k], dp[j][l] + dp[l][k] + points[j] * points[l] * points[k]);
                 }
             }
