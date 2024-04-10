@@ -30,7 +30,7 @@ public:
             /* 若可以匹配空字串，則pattern剩下的必為偶數個字元 */
             if ((p.length() - j) % 2 == 1) return false;
             /* 檢查偶數項是否為* */
-            for (; j + 1 < p.length() ; j += 2)
+            for (; j < p.length() ; j += 2)
                 if (p[j + 1] != '*') return false;
             return true;
         }
