@@ -5,10 +5,10 @@
 
   利用雙指標分別指向s和p的開頭，定義dp(s, i, p, j)代表s[i...]是否可以匹配p[j...]
   若s[i] == p[j]或者是p[j] == '.'，則分為以下兩種情形：
-    當p[j + 1]為萬用字元.時，則p[j]可能匹配0個或多個字元
+    當p[j + 1]為萬用字元*時，則p[j]可能匹配0個或多個字元
     反之則常規比對一次
   反之s[i] != p[j]且p[j] != '.'，則分為以下兩種情形：
-    當p[j + 1]為萬用字元.時，則萬用字元匹配0個字元
+    當p[j + 1]為萬用字元*時，則萬用字元匹配0個字元
     反之則無法繼續比對
   當j走到結尾時，檢查i是否也走到結尾，若是則回傳true
   當i走到結尾時，檢查以下兩種情況：
@@ -21,30 +21,41 @@ public:
     unordered_map<string, bool> memo;
 
     bool dp(string s, int i, string p, int j) {
+        /* 當pattern全部走完，則text也要全部走完 */
         if (j == p.length())
             return i == s.length();
 
+        /* 當text先走完，再來看pattern剩下的是否能匹配空字串，如s = "a", t = "ab*c*"這種情況 */
         if (i == s.length()) {
+            /* 若可以匹配空字串，則pattern剩下的必為偶數個字元 */
             if ((p.length() - j) % 2 == 1) return false;
+            /* 檢查偶數項是否為* */
             for (; j + 1 < p.length() ; j += 2)
                 if (p[j + 1] != '*') return false;
             return true;
         }
 
+        /* 利用備忘錄記錄來消除重疊子問題 */
         string key = to_string(i) + "," + to_string(j);
         if (memo.count(key)) return memo[key];
 
         bool res = false;
         if (s[i] == p[j] || p[j] == '.') {
+            /* 有*萬用字元，可以比對0次或多次 */
             if (j < p.length() - 1 && p[j + 1] == '*') {
                 res = dp(s, i, p, j + 2) || dp(s, i + 1, p, j);
-            } else {
+            }
+            /* 無*萬用字元，常規比對1次 */
+            else {
                 res = dp(s, i + 1, p, j + 1);
             }
         } else {
+            /* 有*萬用字元，只能比對0次 */
             if (j < p.length() - 1 && p[j + 1] == '*') {
                 res = dp(s, i, p, j + 2);
-            } else {
+            }
+            /* 無*萬用字元，無法比對下去 */
+            else {
                 res = false;
             }
         }
@@ -54,6 +65,7 @@ public:
     }
 
     bool isMatch(string s, string p) {
+        /* 表示s[0...]和p[0...]是否能匹配 */
         return dp(s, 0, p, 0);    
     }
 };
