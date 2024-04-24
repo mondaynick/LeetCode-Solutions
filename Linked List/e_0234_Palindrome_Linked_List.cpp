@@ -11,7 +11,7 @@
        (head)                        (slow)              (fast)
   偶數  1      -> 2      -> 2      -> 1      -> NULL
        (head)              (slow)              (fast)
-  從slow開始反轉後面的鏈結串列後，即可開始比較回文
+  從slow開始反轉後面的鏈結串列後，即可開始比較回文：
   奇數  1      -> 2       ->3      -> 2      <- 1      
        (left)                        v         (right)
                                     NULL
