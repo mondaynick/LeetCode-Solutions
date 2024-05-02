@@ -1,7 +1,7 @@
 /*
   給定nums1和nums2，回傳nums1中對應到nums2下一個更大的元素，如果沒有更大的元素則存-1
 
-  利用單調堆疊
+  利用單調堆疊，每次push新元素e時，都要pop掉那些比e小的數字
  */
 
 class Solution {
