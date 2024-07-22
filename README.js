@@ -25,6 +25,5 @@ const nums = [
   "0212", "0208", "0211", // trie
   "0283", "0349", "0015", "0018", "0019", "0075", "0167", "0189", "0287", // two pointer
 ];
-nums[
-  Math.ceil(Math.random() * (nums.length - 1) + 1)
-]
+
+open("https://leetcode.com/problemset/?search=" + nums[Math.ceil(Math.random() * (nums.length - 1) + 1)]);
