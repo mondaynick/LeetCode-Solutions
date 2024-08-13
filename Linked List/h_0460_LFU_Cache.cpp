@@ -1,7 +1,7 @@
 /*
   設計一個採用LRU(Least Recently Used)策略的快取，其中提供三個API，分別是實例化、getter和setter
 
-  利用Hash Table加上Linked List，詳細說明在以下程式碼註解
+  利用Hash Table加上Linked List，每個頻率都維護一個鏈結串列，詳細說明在以下程式碼註解
  */
 
 class DoublyLinkedNode {
