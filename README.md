@@ -1,1 +1,1 @@
-[![](https://leetcard.jacoblin.cool/jacoblincool?theme=unicorn)]
+![LeetCode Stats](https://leetcode.card.workers.dev/ZongYanLin?theme=dark&font=baloo&extension=activity)
