@@ -42,7 +42,7 @@
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        if (nums1.size() > nums2.size()) { // Let nums1 be the shorter array
+        if (nums1.size() > nums2.size()) { // 令nums1為最短的陣列
             vector<int> temp;
             temp = nums1;
             nums1 = nums2;
@@ -51,15 +51,17 @@ public:
 
         int n1len = nums1.size();
         int n2len = nums2.size();
-        int totalLeft = (n1len + n2len + 1) / 2; // Get the numbers of left element
-        int left = 0;
+        int totalLeft = (n1len + n2len + 1) / 2; // 取得左邊元素總數
+        int left = 0; // 對nums1做binary search 上邊界和下邊界為nums1的索引範圍
         int right = n1len - 1;
 
         while (true) {
-            int n1idx = left + (right - left) / 2;
-            int n2idx = totalLeft - n1idx;
+            int n1idx = left + (right - left) / 2; // 代表nums1左邊取n1idx個數字
+            int n2idx = totalLeft - n1idx; // 代表nums2右邊取n2idx個數字
 
+            // 若左邊沒有元素 為了確保後續不進行比較誰是最大值 將其設為最小值
             int nums1LeftMax = (n1idx == 0) ? INT_MIN : nums1[n1idx - 1];
+            // 若右邊沒有元素 為了確保後續不進行比較誰是最小值 將其設為最大值
             int nums1RightMin = (n1idx == n1len) ? INT_MAX : nums1[n1idx];
             int nums2LeftMax = (n2idx == 0) ? INT_MIN : nums2[n2idx - 1];
             int nums2RightMin = (n2idx == n2len) ? INT_MAX : nums2[n2idx];
