@@ -4,7 +4,6 @@
 
   利用two pointer，往左每次更新左邊最大，往右每次更新右邊最大
   尋訪第i根柱子的雨水量為min(leftMax, rightMax) - height[i]
-  https://i.imgur.com/B9NnSpg.gif 參考至https://ithelp.ithome.com.tw/articles/10248985
  */
 
 class Solution {
