@@ -31,7 +31,7 @@ public:
         if (height < 2) return height;
         if (eggs == 1) return height;
 
-        string key = to_string(eggs) + to_string(height);
+        string key = to_string(eggs) + "," + to_string(height);
         if (memo.count(key)) return memo[key];
 
         int left = 1, right = height;
