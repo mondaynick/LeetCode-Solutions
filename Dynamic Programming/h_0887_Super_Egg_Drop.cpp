@@ -15,7 +15,7 @@
   -
   但如果利用linear search從1找到height實在是太慢了，以下介紹使用binary search:
   (1) 由 “如果有碎則從以下樓層開始丟，方法數為superEggDrop(eggs - 1, x - 1)” 可知當x越大時，其方法數會越多，為一個單調遞增函數
-  (2) 由 “如果沒碎則從以上樓層開始丟，方法數為superEggDrop(eggs, height - x)” 可知當x越小時，其方法數會越小，為一個單調遞減函數
+  (2) 由 “如果沒碎則從以上樓層開始丟，方法數為superEggDrop(eggs, height - x)” 可知當x越大時，其方法數會越小，為一個單調遞減函數
   畫出x-y圖，y軸表示表示所需的最少扔雞蛋次數，x軸表示從哪一個樓層將雞蛋往上丟，故兩函數之交點必等於以下
   min 1 ≤ x ≤ height max( superEggDrop(eggs - 1, x - 1) , superEggDrop(eggs, height - x) )
   利用binary search，如果當前樓層破的雞蛋數大於當前樓層沒破的雞蛋數，則右區間等於中間，反之則左區間等於中間
