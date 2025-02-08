@@ -30,18 +30,13 @@ public:
             int s = jobs[i - 1]->startTime;
             int e = jobs[i - 1]->endTime;
             int p = jobs[i - 1]->profit;
-            if (i == 0) {
-                res[i] = p;
-                continue;
-            }
-            int choose = p;
-            for (int j = i - 2 ; j >= 0 ; j--) {
-                if (jobs[j]->endTime <= s) {
-                    choose += res[j + 1];
+            int choose = p, notChoose = res[i - 1];
+            for (int j = i - 1 ; j > 0 ; j--) {
+                if (jobs[j - 1]->endTime <= s) {
+                    choose += res[j];
                     break;
                 }
             }
-            int notChoose = res[i - 1];
             res[i] = max(choose, notChoose);
         }
         return res.back();
