@@ -1,5 +1,5 @@
 /*
-  給定一整數陣列nums和整數k，算出nums中一共有幾個和為k的子陣列
+  給定一整數陣列 nums 和整數 k ，算出 nums 中一共有幾個和為 k 的子陣列
 
   定義 range(i, j) 為 nums[i] ~ nums[j] 的數值加總，因此 range(i, j) = prefixSums[j] - prefixSums[i - 1]
   故 prefixSum[j] - range(i, j) = prefixSum[i - 1]
