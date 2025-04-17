@@ -3,7 +3,7 @@
     (1) nums[i] == nums[j]
     (2) (i * j) % k == 0
 
-  利用巢氏迴圈
+  利用巢狀迴圈
  */
 
 class Solution {
