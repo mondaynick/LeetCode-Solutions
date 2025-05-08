@@ -32,8 +32,6 @@ public:
             pq.pop();
             if (row == rowlen - 1 && col == collen - 1) {
                 return dist;
-            } else if (distance[row][col] < dist) {
-                continue;
             }
             for (int i = 0 ; i < 4 ; ++i) {
                 int drow = row + dir[i];
