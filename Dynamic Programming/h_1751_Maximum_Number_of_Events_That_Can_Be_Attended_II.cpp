@@ -30,7 +30,6 @@ public:
                 }
             }
             int nonOverlapIdx = left;
-            // 
             for (int hasAttended = 1 ; hasAttended <= k  ; ++hasAttended) {
                 dp[currEventIdx][hasAttended] = max(
                     dp[nonOverlapIdx][hasAttended - 1] + events[currEventIdx - 1][2],
